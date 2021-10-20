@@ -22,7 +22,6 @@
         botChoosen: rand,
         result: res,
         isLoading: false,
-        score: state.score + res,
         history: [...state.history, { botChoosen: rand, userChoosen: e.detail, result: res, id: nanoid(4) }],
       }
     })
