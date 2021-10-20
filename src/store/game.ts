@@ -1,8 +1,8 @@
 import { writable } from 'svelte/store'
 import { parseIfJsonString } from '@app/helper/JSON.helper'
 
-const LS_KEY_SCORE = 'svelte_gawi_bawi_bo_score'
-const LS_KEY_HISTORY = 'svelte_gawi_bawi_bo_history'
+const LS_KEY_SCORE = 'svelte_gawi_bawi_bo_score__bonus'
+const LS_KEY_HISTORY = 'svelte_gawi_bawi_bo_history__bonus'
 
 interface GameHistory {
   userChoosen: number

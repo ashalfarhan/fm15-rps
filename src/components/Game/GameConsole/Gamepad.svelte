@@ -43,11 +43,11 @@
   }
 
   .game-button {
-    width: 160px;
-    height: 160px;
+    width: 130px;
+    height: 130px;
     border-radius: 100%;
     display: flex;
-    padding: 1.3em;
+    padding: 1em;
     transition: all 200ms ease;
   }
 
@@ -64,6 +64,16 @@
   .game-button.rock {
     background-image: var(--rock-gradient);
     box-shadow: 0 0.5rem 0 hsl(349, 71%, 45%);
+  }
+
+  .game-button.lizard {
+    background-image: var(--lizard-gradient);
+    box-shadow: 0 0.5rem 0 hsl(261, 73%, 56%);
+  }
+
+  .game-button.spock {
+    background-image: var(--cyan);
+    box-shadow: 0 0.5rem 0 hsl(189, 59%, 40%);
   }
 
   .game-button:active {

@@ -1,12 +1,15 @@
 import paperIcon from '@app/assets/images/icon-paper.svg'
 import scissorsIcon from '@app/assets/images/icon-scissors.svg'
 import rockIcon from '@app/assets/images/icon-rock.svg'
+import spockIcon from '@app/assets/images/icon-spock.svg'
+import lizardIcon from '@app/assets/images/icon-lizard.svg'
 
-export const gamepadImages = [rockIcon, paperIcon, scissorsIcon]
+export const gamepadImages = [rockIcon, paperIcon, scissorsIcon, spockIcon, lizardIcon]
 
-type Options = 'rock' | 'paper' | 'scissors'
+type Options = 'rock' | 'paper' | 'scissors' | 'spock' | 'lizard'
 
-export const gameOptions: Options[] = ['rock', 'paper', 'scissors']
+export const gameOptions: Options[] = ['rock', 'paper', 'scissors', 'spock', 'lizard']
+
 export const parseResultText = {
   '-1': 'LOSE',
   '0': 'DRAW',
@@ -19,19 +22,38 @@ export function determineResult(userWeaponIdx: number, botWeaponIdx: number): -1
   if (!userWeapon || !botWeapon) {
     return 0
   }
-  const pair = userWeapon.substring(0, 1) + botWeapon.substring(0, 1)
+  const pair = userWeapon.substring(0, 2) + botWeapon.substring(0, 2)
   switch (pair.toLowerCase()) {
-    case 'rr':
-    case 'pp':
-    case 'ss':
+    case 'roro':
+    case 'papa':
+    case 'scsc':
+    // Bonus
+    case 'spsp':
+    case 'lili':
       return 0
-    case 'pr':
-    case 'rs':
-    case 'sp':
+    case 'paro':
+    case 'pasp':
+    case 'rosc':
+    case 'roli':
+    case 'scpa':
+    case 'scli':
+    // Bonus
+    case 'lisp':
+    case 'lipa':
+    case 'spsc':
+    case 'spro':
       return 1
-    case 'rp':
-    case 'sr':
-    case 'ps':
+    case 'ropa':
+    case 'rosp':
+    case 'scro':
+    case 'scsp':
+    case 'pasc':
+    case 'pali':
+    // Bonus
+    case 'liro':
+    case 'lisc':
+    case 'spli':
+    case 'sppa':
       return -1
     default:
       return 0

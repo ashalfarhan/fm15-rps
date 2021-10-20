@@ -19,7 +19,7 @@
     if (state.isPlaying) {
       if (typeof state.userChoosen === 'number') {
         await sleep(800)
-        const rand = Math.floor(Math.random() * 3)
+        const rand = Math.floor(Math.random() * 5)
         const res = determineResult(state.userChoosen, rand)
         state.botChoosen = rand
         state.result = res
