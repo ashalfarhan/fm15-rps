@@ -1,7 +1,7 @@
 <script lang="ts">
   import { flip } from 'svelte/animate'
-import { gamepadImages, parseResultText } from '@app/libs/game';
-import { gameState, modalState } from '@app/store';
+  import { gamepadImages, parseResultText } from '@app/libs/game'
+  import { gameState, modalState } from '@app/store'
   import ResetConfirmation from '../Modals/ResetConfirmation.svelte'
   const handleReset = () => {
     gameState.update((prev) => ({ ...prev, history: [], score: 0 }))
@@ -46,6 +46,10 @@ import { gameState, modalState } from '@app/store';
   {:else}
     <p>You haven't played a game yet</p>
   {/if}
+  <p class="banner">
+    Back to
+    <a href="https://ashal-rps.surge.sh">Classic Game</a>
+  </p>
 </div>
 
 <style>
@@ -123,6 +127,21 @@ import { gameState, modalState } from '@app/store';
   .clear-button:hover {
     filter: opacity(0.8);
   }
+
+  .banner {
+    font-size: 12px;
+    color: var(--text-main);
+  }
+  .banner a {
+    color: var(--text-main);
+    text-decoration: none;
+    background: var(--rock-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: cover;
+    font-weight: bold;
+  }
+
   @media screen and (max-width: 480px) {
     .game-history-wrapper {
       bottom: 4em;
