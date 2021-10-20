@@ -1,12 +1,31 @@
 <script lang="ts">
   import { gameState, modalState } from './store'
-  import GameConsole from '@app/components/Game/GameConsole/index.svelte'
+  import GameConsole from '@app/components/Game/GameConsole/GameConsole.svelte'
   import GameResult from '@app/components/Game/GameResult.svelte'
   import Modal from './components/Modals/Modal.svelte'
   import Header from './components/Header.svelte'
   import GameHistory from './components/Game/GameHistory.svelte'
+  import { sleep } from './helper/sleep.helper'
+  import { determineResult } from './libs/game'
+  import { nanoid } from 'nanoid'
   const handleOpenRules = () => {
     modalState.update((prev) => ({ ...prev, rulesOpen: true, historyOpen: false }))
+  }
+
+  const onGameStart = async (e: CustomEvent<number>) => {
+    await sleep(800)
+    const rand = Math.floor(Math.random() * 5)
+    gameState.update((state) => {
+      const res = determineResult(e.detail, rand)
+      return {
+        ...state,
+        botChoosen: rand,
+        result: res,
+        isLoading: false,
+        score: state.score + res,
+        history: [...state.history, { botChoosen: rand, userChoosen: e.detail, result: res, id: nanoid(4) }],
+      }
+    })
   }
 </script>
 
@@ -16,14 +35,10 @@
     {#if $gameState.isPlaying}
       <GameResult />
     {:else}
-      <GameConsole />
+      <GameConsole on:on-user-select={onGameStart} />
     {/if}
   </div>
   <button class="rules-button" on:click={handleOpenRules}>Rules</button>
-  <!-- <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
-    <a href="#">Your Name Here</a>.
-  </footer> -->
 </div>
 
 <Modal open={$modalState.rulesOpen} title="Rules">
@@ -247,6 +262,8 @@
 </Modal>
 
 <style>
+  @import url('@app/assets/styles/global.css');
+
   .container {
     height: 100vh;
     max-width: 70vw;

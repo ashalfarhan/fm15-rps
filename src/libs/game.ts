@@ -6,9 +6,7 @@ import lizardIcon from '@app/assets/images/icon-lizard.svg'
 
 export const gamepadImages = [rockIcon, paperIcon, scissorsIcon, spockIcon, lizardIcon]
 
-type Options = 'rock' | 'paper' | 'scissors' | 'spock' | 'lizard'
-
-export const gameOptions: Options[] = ['rock', 'paper', 'scissors', 'spock', 'lizard']
+export const gameOptions = ['rock', 'paper', 'scissors', 'spock', 'lizard']
 
 export const parseResultText = {
   '-1': 'LOSE',

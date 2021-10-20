@@ -3,6 +3,7 @@
   const handleOpenHistory = () => {
     modalState.update((prev) => ({ ...prev, historyOpen: true, rulesOpen: false }))
   }
+  $: score = $gameState.history.length > 0 ? $gameState.history.reduce((acc, next) => acc + next.result, 0) : 0
 </script>
 
 <header>
@@ -26,7 +27,7 @@
 
   <button class="score-panel" on:click={handleOpenHistory}>
     <p>SCORE</p>
-    <h1>{$gameState.score}</h1>
+    <h1>{score}</h1>
   </button>
 </header>
 

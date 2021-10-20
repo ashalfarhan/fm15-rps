@@ -15,15 +15,15 @@
   </svg>
 
   <div class="console console-upper">
-    <Gamepad withAction padValue={2} />
+    <Gamepad withAction padValue={2} on:on-user-select />
   </div>
   <div class="console console-middle">
-    <Gamepad withAction padValue={3} />
-    <Gamepad withAction padValue={1} />
+    <Gamepad withAction padValue={3} on:on-user-select />
+    <Gamepad withAction padValue={1} on:on-user-select />
   </div>
   <div class="console console-below">
-    <Gamepad withAction padValue={4} />
-    <Gamepad withAction padValue={0} />
+    <Gamepad withAction padValue={4} on:on-user-select />
+    <Gamepad withAction padValue={0} on:on-user-select />
   </div>
 </div>
 
