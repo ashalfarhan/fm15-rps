@@ -295,9 +295,7 @@
     }
     .rules-button {
       bottom: 0.8em;
-      right: 50%;
-      left: 50%;
-      transform: translate(-50%, -30%);
+      transform: translate(-70%, -30%);
     }
   }
 </style>

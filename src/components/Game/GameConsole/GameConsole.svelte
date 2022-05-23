@@ -68,7 +68,7 @@
       top: -2.5em;
     }
     .console-middle {
-      column-gap: 9em;
+      column-gap: 7em;
       top: -1.5em;
     }
     .console-below {
