@@ -388,6 +388,7 @@
     padding: 0.5em 2em;
     font-size: 20px;
     background: transparent;
+    width: fit-content;
     outline: 1px solid var(--main);
     border-radius: 9px;
     color: white;
@@ -402,7 +403,9 @@
     }
     .rules-button {
       bottom: 0.8em;
-      transform: translate(-70%, -30%);
+      right: 50%;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 </style>
