@@ -33,6 +33,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 8;
   }
 
   .reset-confirmation__overlay {
