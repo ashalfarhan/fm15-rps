@@ -1,18 +1,44 @@
 <script lang="ts">
-  import { gameState, modalState } from '../store'
+  import { gameState, modalState } from '../store';
   const handleOpenHistory = () => {
-    modalState.update((prev) => ({ ...prev, historyOpen: true, rulesOpen: false }))
-  }
-  $: score = $gameState.history.length > 0 ? $gameState.history.reduce((acc, next) => acc + next.result, 0) : 0
+    modalState.update(prev => ({
+      ...prev,
+      historyOpen: true,
+      rulesOpen: false,
+    }));
+  };
+  $: score =
+    $gameState.history.length > 0
+      ? $gameState.history.reduce((acc, next) => acc + next.result, 0)
+      : 0;
 </script>
 
 <header>
-  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="115" height="114">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="115"
+    height="114"
+  >
     <defs>
-      <filter id="a" width="111%" height="111.1%" x="-5.5%" y="-2.8%" filterUnits="objectBoundingBox">
+      <filter
+        id="a"
+        width="111%"
+        height="111.1%"
+        x="-5.5%"
+        y="-2.8%"
+        filterUnits="objectBoundingBox"
+      >
         <feOffset dy="3" in="SourceAlpha" result="shadowOffsetOuter1" />
-        <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1.5" />
-        <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.196705638 0" />
+        <feGaussianBlur
+          in="shadowOffsetOuter1"
+          result="shadowBlurOuter1"
+          stdDeviation="1.5"
+        />
+        <feColorMatrix
+          in="shadowBlurOuter1"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.196705638 0"
+        />
       </filter>
       <path
         id="b"

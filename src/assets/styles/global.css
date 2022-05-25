@@ -1,8 +1,24 @@
 :root {
-  --scissors-gradient: linear-gradient(to bottom, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
-  --paper-gradient: linear-gradient(to bottom, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
-  --rock-gradient: linear-gradient(to bottom, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
-  --lizard-gradient: linear-gradient(to bottom, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  --scissors-gradient: linear-gradient(
+    to bottom,
+    hsl(39, 89%, 49%),
+    hsl(40, 84%, 53%)
+  );
+  --paper-gradient: linear-gradient(
+    to bottom,
+    hsl(230, 89%, 62%),
+    hsl(230, 89%, 65%)
+  );
+  --rock-gradient: linear-gradient(
+    to bottom,
+    hsl(349, 71%, 52%),
+    hsl(349, 70%, 56%)
+  );
+  --lizard-gradient: linear-gradient(
+    to bottom,
+    hsl(261, 73%, 60%),
+    hsl(261, 72%, 63%)
+  );
   --cyan: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
   --text-main: hsl(229, 25%, 31%);
   --text-second: hsl(229, 64%, 46%);
@@ -17,8 +33,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Barlow Semi Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Barlow Semi Condensed', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
 body {

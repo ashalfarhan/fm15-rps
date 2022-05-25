@@ -1,6 +1,6 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
 export const modalState = writable({
-    rulesOpen: false,
-    historyOpen: false
-})
+  rulesOpen: false,
+  historyOpen: false,
+});

@@ -1,13 +1,17 @@
 <script lang="ts">
-  import { modalState } from '@app/store/modal'
-  import { fade } from 'svelte/transition'
+  import { modalState } from '@app/store/modal';
+  import { fade } from 'svelte/transition';
 
-  export let title = 'Modal Title'
-  export let open = false
+  export let title = 'Modal Title';
+  export let open = false;
 
   const handleClose = () => {
-    modalState.update((prev) => ({ ...prev, historyOpen: false, rulesOpen: false }))
-  }
+    modalState.update(prev => ({
+      ...prev,
+      historyOpen: false,
+      rulesOpen: false,
+    }));
+  };
 </script>
 
 {#if open}

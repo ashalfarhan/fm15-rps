@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte'
-  import { fade } from 'svelte/transition'
+  import { createEventDispatcher } from 'svelte';
+  import { fade } from 'svelte/transition';
 
-  const dispatch = createEventDispatcher()
-  export let open = false
+  const dispatch = createEventDispatcher();
+  export let open = false;
 </script>
 
 {#if open}
@@ -12,8 +12,12 @@
     <div class="reset-confirmation__content">
       <h1>Are you sure want to delete history (and score) ?</h1>
       <div class="button-group">
-        <button class="button agree" on:click={() => dispatch('aggree')}>Yes</button>
-        <button class="button disagree" on:click={() => dispatch('disagree')}>No</button>
+        <button class="button agree" on:click={() => dispatch('aggree')}
+          >Yes</button
+        >
+        <button class="button disagree" on:click={() => dispatch('disagree')}
+          >No</button
+        >
       </div>
     </div>
   </div>

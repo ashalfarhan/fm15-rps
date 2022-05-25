@@ -1,16 +1,20 @@
 <script lang="ts">
-  import { flip } from 'svelte/animate'
-  import { gamepadImages, parseResultText } from '@app/libs/game'
-  import { gameState, modalState } from '@app/store'
-  import ResetConfirmation from '../Modals/ResetConfirmation.svelte'
+  import { flip } from 'svelte/animate';
+  import { gamepadImages, parseResultText } from '@app/libs/game';
+  import { gameState, modalState } from '@app/store';
+  import ResetConfirmation from '../Modals/ResetConfirmation.svelte';
   const handleReset = () => {
-    gameState.update((prev) => ({ ...prev, history: [], score: 0 }))
-    handleClose()
-  }
-  let confirmOpen = false
+    gameState.update(prev => ({ ...prev, history: [], score: 0 }));
+    handleClose();
+  };
+  let confirmOpen = false;
   const handleClose = () => {
-    modalState.update((prev) => ({ ...prev, historyOpen: false, rulesOpen: false }))
-  }
+    modalState.update(prev => ({
+      ...prev,
+      historyOpen: false,
+      rulesOpen: false,
+    }));
+  };
 </script>
 
 <div class="game-history-wrapper">
@@ -28,21 +32,40 @@
           {#each $gameState.history as result (result.id)}
             <tr animate:flip>
               <td>
-                <img width="24" height="24" src={gamepadImages[result.userChoosen]} alt="" />
+                <img
+                  width="24"
+                  height="24"
+                  src={gamepadImages[result.userChoosen]}
+                  alt=""
+                />
               </td>
-              <td class={'result ' + (parseResultText[result.result]?.toLowerCase() ?? 'draw')}>
+              <td
+                class={'result ' +
+                  (parseResultText[result.result]?.toLowerCase() ?? 'draw')}
+              >
                 {parseResultText[result.result] ?? 'DRAW'}
               </td>
               <td>
-                <img width="24" height="24" src={gamepadImages[result.botChoosen]} alt="" />
+                <img
+                  width="24"
+                  height="24"
+                  src={gamepadImages[result.botChoosen]}
+                  alt=""
+                />
               </td>
             </tr>
           {/each}
         </tbody>
       </table>
     </div>
-    <ResetConfirmation open={confirmOpen} on:aggree={handleReset} on:disagree={() => (confirmOpen = false)} />
-    <button class="clear-button" on:click={() => (confirmOpen = true)}>Clear</button>
+    <ResetConfirmation
+      open={confirmOpen}
+      on:aggree={handleReset}
+      on:disagree={() => (confirmOpen = false)}
+    />
+    <button class="clear-button" on:click={() => (confirmOpen = true)}
+      >Clear</button
+    >
   {:else}
     <p>You haven't played a game yet</p>
   {/if}

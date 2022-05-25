@@ -1,18 +1,27 @@
 <script lang="ts">
-  import Gamepad from './GameConsole/Gamepad.svelte'
-  import { scale } from 'svelte/transition'
-  import { fade } from 'svelte/transition'
-  import { gameState } from '@app/store'
-  import { parseResultText } from '@app/libs/game'
+  import Gamepad from './GameConsole/Gamepad.svelte';
+  import { scale } from 'svelte/transition';
+  import { fade } from 'svelte/transition';
+  import { gameState } from '@app/store';
+  import { parseResultText } from '@app/libs/game';
 
   const handlePlayAgain = () => {
-    gameState.update((prev) => ({ ...prev, isPlaying: false, userChoosen: null, botChoosen: null, isLoading: false }))
-  }
+    gameState.update(prev => ({
+      ...prev,
+      isPlaying: false,
+      userChoosen: null,
+      botChoosen: null,
+      isLoading: false,
+    }));
+  };
 
-  $: resultText = parseResultText[$gameState.result]
+  $: resultText = parseResultText[$gameState.result];
 </script>
 
-<div in:scale class="game-result-container {$gameState.isLoading ? 'loading' : ''}">
+<div
+  in:scale
+  class="game-result-container {$gameState.isLoading ? 'loading' : ''}"
+>
   <div class="pick client-picked">
     <h1>You Picked</h1>
     <Gamepad padValue={$gameState.userChoosen} />

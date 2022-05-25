@@ -1,10 +1,15 @@
 <script lang="ts">
-  import Gamepad from './Gamepad.svelte'
-  import { scale } from 'svelte/transition'
+  import Gamepad from './Gamepad.svelte';
+  import { scale } from 'svelte/transition';
 </script>
 
 <div in:scale class="console-container">
-  <svg class="pentagon" xmlns="http://www.w3.org/2000/svg" width="329" height="313">
+  <svg
+    class="pentagon"
+    xmlns="http://www.w3.org/2000/svg"
+    width="329"
+    height="313"
+  >
     <path
       fill="none"
       stroke="#000"
